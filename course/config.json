@@ -1,0 +1,15 @@
+{
+  "title": "A brand new course for you to learn",
+  "tagline": "Learn how to make courses on the course maker using a course",
+  "description": "Here you might use some MD probably",
+  "steps": [
+    "hello",
+    {
+      "name": "some-tests",
+      "title": "Here you can set another title for this course",
+      "description": "I don't know yet if this is mandatory. If so, I think we have to have objects for defining every step",
+      "tests": true
+    },
+    "wrapping-up"
+  ]
+}

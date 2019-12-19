@@ -1,0 +1,18 @@
+{
+  "name": "course-example",
+  "vendor": "vtex",
+  "version": "0.0.5",
+  "title": "Course Example",
+  "description": "Reference app for VTEX Courses using the Course Builder",
+  "dependencies": {},
+  "builders": {
+    "docs": "0.x",
+    "course": "0.x"
+  },
+  "scripts": {
+    "prereleasy": "bash lint.sh"
+  },
+  "credentialType": "absolute",
+  "policies": [],
+  "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
+}
