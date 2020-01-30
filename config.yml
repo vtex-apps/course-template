@@ -1,0 +1,84 @@
+title: A example course for you to learn
+tagline: >-
+  Learn how to make courses on the course maker using a course. Realize that
+  we'll use use app's name for creating the final files repo.
+description: Here you might use some MD. Probably.
+template:
+  name: vtex.course-hub@0.5.1
+  repo: vtex.course-hub@0.5.1-template
+before:
+  - body: hello-world.md
+    title: Hello
+    type: createIssue
+steps:
+  - title: Hello
+    description: >-
+      Description for the Hello World step (used solely for Github's progress
+      page)
+    event: issues.closed
+    link: '{{ repoUrl }}/issues/1'
+    actions:
+      - type: respond
+        with: new-issue.md
+        issue: 1
+        data:
+          nextIssue: '2'
+          nextName: >-
+            On this step, we have tests that check if some JSONC files were
+            correctly made
+      - body: writing-jsonc.md
+        title: >-
+          On this step, we have tests that check if some JSONC files were
+          correctly made
+        type: createIssue
+  - title: >-
+      On this step, we have tests that check if some JSONC files were correctly
+      made
+    description: ''
+    event: status
+    link: '{{ repoUrl }}/issues/2'
+    actions:
+      - type: gate
+        left: '%payload.state'
+        operator: ===
+        right: success
+      - type: respond
+        with: new-issue.md
+        issue: 2
+        data:
+          nextIssue: '3'
+          nextName: >-
+            Here, we will get some CSS files and parse them, checking if the
+            correct classes were declared
+      - body: writing-css.md
+        title: >-
+          Here, we will get some CSS files and parse them, checking if the
+          correct classes were declared
+        type: createIssue
+  - title: >-
+      Here, we will get some CSS files and parse them, checking if the correct
+      classes were declared
+    description: ''
+    event: status
+    link: '{{ repoUrl }}/issues/3'
+    actions:
+      - type: gate
+        left: '%payload.state'
+        operator: ===
+        right: success
+      - type: respond
+        with: new-issue.md
+        issue: 3
+        data:
+          nextIssue: '4'
+          nextName: Here you can set another title for this course
+      - body: wrapping-up.md
+        title: Here you can set another title for this course
+        type: createIssue
+  - title: Here you can set another title for this course
+    description: >-
+      I don't know yet if this is mandatory. If so, I think we have to have
+      objects for defining every step
+    event: issues.closed
+    link: '{{ repoUrl }}/issues/4'
+    actions: []
