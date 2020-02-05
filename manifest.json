@@ -1,7 +1,7 @@
 {
   "name": "course-example",
   "vendor": "vtex",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "title": "Course Example",
   "description": "Reference app for VTEX Courses using the Course Builder",
   "dependencies": {},
