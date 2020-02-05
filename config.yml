@@ -4,8 +4,8 @@ tagline: >-
   we'll use use app's name for creating the final files repo.
 description: Here you might use some MD. Probably.
 template:
-  name: vtex.course-hub@0.5.1
-  repo: vtex.course-hub@0.5.1-template
+  name: course-example
+  repo: course-example-template
 before:
   - body: hello-world.md
     title: Hello
@@ -34,7 +34,7 @@ steps:
   - title: >-
       On this step, we have tests that check if some JSONC files were correctly
       made
-    description: ''
+    description: Second description
     event: status
     link: '{{ repoUrl }}/issues/2'
     actions:
@@ -58,7 +58,7 @@ steps:
   - title: >-
       Here, we will get some CSS files and parse them, checking if the correct
       classes were declared
-    description: ''
+    description: Third description
     event: status
     link: '{{ repoUrl }}/issues/3'
     actions:
@@ -79,6 +79,10 @@ steps:
     description: >-
       I don't know yet if this is mandatory. If so, I think we have to have
       objects for defining every step
-    event: issues.closed
+    event: status
     link: '{{ repoUrl }}/issues/4'
-    actions: []
+    actions:
+      - type: gate
+        left: '%payload.state'
+        operator: ===
+        right: success
