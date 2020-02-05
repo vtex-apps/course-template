@@ -12,20 +12,20 @@
     {
       "folder": "writing-jsonc",
       "title": "On this step, we have tests that check if some JSONC files were correctly made",
-      "description": "",
+      "description": "Second description",
       "challenge": "tests"
     },
     {
       "folder": "writing-css",
       "title": "Here, we will get some CSS files and parse them, checking if the correct classes were declared",
-      "description": "",
+      "description": "Third description",
       "challenge": "tests"
     },
     {
       "folder": "wrapping-up",
       "title": "Here you can set another title for this course",
       "description": "I don't know yet if this is mandatory. If so, I think we have to have objects for defining every step",
-      "challenge": "none"
+      "challenge": "tests"
     }
   ]
 }
