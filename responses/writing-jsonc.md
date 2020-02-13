@@ -1,3 +1,3 @@
-# Now let's see if you grasped everything
+# Escrevendo JSONC
 
-In this step, you need to do some tests to pass. **But you have to indicate this** in the `config.json` (probably. It may change)
+Este step tem testes configurados no `config.yml`
