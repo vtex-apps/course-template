@@ -4,7 +4,6 @@
   "version": "0.4.0",
   "title": "Course Example",
   "description": "Reference app for VTEX Courses using the Course Builder",
-  "dependencies": {},
   "builders": {
     "docs": "0.x",
     "course": "0.x"
