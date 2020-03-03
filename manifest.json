@@ -6,7 +6,7 @@
   "description": "Reference app for VTEX Courses using the Course Builder",
   "builders": {
     "docs": "0.x",
-    "course": "0.x"
+    "node": "4.x"
   },
   "scripts": {
     "prereleasy": "bash lint.sh"

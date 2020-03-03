@@ -1,0 +1,25 @@
+{
+  "memory": 256,
+  "ttl": 10,
+  "timeout": 3,
+  "minReplicas": 2,
+  "maxReplicas": 4,
+  "routes": {
+    "correction": {
+      "path": "/courses/{{appName}}/correction",
+      "public": false,
+      "access": "authorized",
+      "policies": [
+        {
+          "effect": "allow",
+          "actions": [
+            "post"
+          ],
+          "principals": [
+            "vrn:apps:*:{{account}}:{{workspace}}:app/vtex.course-hub@*"
+          ]
+        }
+      ]
+    }
+  }
+}

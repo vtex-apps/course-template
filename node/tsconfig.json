@@ -1,0 +1,4 @@
+{
+  "types": ["node", "jest"],
+  "include": ["./**/*"]
+}

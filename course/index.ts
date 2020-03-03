@@ -3,7 +3,6 @@ import {
   ClientsConfig,
   Service,
   ServiceContext,
-  UserInputError,
   InstanceOptions,
   IOContext,
   AppClient,
@@ -95,8 +94,11 @@ const correctionHandler = async (ctx: Context) => {
 
   const suite = stepModule.default;
 
-  const results: TestResult = [];
+  const results: TestResult[] = [];
   const testCtx = {
+    parseCss: () => {},
+    parseJsonc: () => {},
+    ramda: {},
     getFile: (path: string) =>
       courseHub.getFileContent({
         installationId,
