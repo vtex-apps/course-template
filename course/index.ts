@@ -67,6 +67,11 @@ declare global {
   type Context = ServiceContext<Clients>;
 }
 
+interface TestResult {
+  msg: string;
+  success: boolean;
+}
+
 /**
  * Resolves the corresponding name for a branch to search the code depending on the step.
  *
@@ -84,40 +89,41 @@ const correctionHandler = async (ctx: Context) => {
   try {
     stepModule = await import(join(__dirname, `./${step}.js`));
   } catch (e) {
-    // TODO: Return an { error } maybe
-    throw new UserInputError(`There's no step '${step}' on this course.`);
+    ctx.status = 400;
+    ctx.body = { error: `There's no step '${step}' on this course.` };
   }
 
   const suite = stepModule.default;
 
-  const results = await Promise.all(
-    suite.tests.map(async ({ test, description, failMsg }: any) => {
-      try {
-        const success = await test({
-          files: [],
-          getFile: (path: string) =>
-            courseHub.getFileContent({
-              installationId,
-              owner,
-              repo,
-              branch: getBranchForStep(step),
-              path
-            }),
-          lib: {}
-        });
-        return {
-          success,
-          msg: success ? description : failMsg
-        };
-      } catch (e) {
-        throw e;
-        return { pass: false, failMsg: e.message || failMsg };
-      }
-    })
-  );
+  const results: TestResult = [];
+  const testCtx = {
+    getFile: (path: string) =>
+      courseHub.getFileContent({
+        installationId,
+        owner,
+        repo,
+        branch: getBranchForStep(step),
+        path
+      })
+  };
 
-  // Add cache header here, please Mr.
+  for (const testCase of suite.tests) {
+    const { test, description, failMsg } = testCase;
+    try {
+      const success = await test({
+        ctx: testCtx
+      });
+      results.push({
+        success,
+        msg: success ? description : failMsg
+      });
+    } catch (e) {
+      results.push({ success: false, msg: e.message || failMsg });
+    }
+  }
+
   ctx.status = 200;
+  ctx.set("Cache-Control", "no-cache,no-store");
   ctx.body = results;
 };
 
