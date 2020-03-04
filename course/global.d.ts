@@ -1,0 +1,23 @@
+export {}
+
+declare global {
+  interface TestContext {
+    getFile: (path: string) => Promise<string>
+    parseCss: (content: string) => object
+    parseJsonc: (content: string) => object
+    ramda: object
+    [key: string]: any
+  }
+
+  interface TestFunctionParameters {
+    ctx: TestContext
+  }
+
+  interface TestCase {
+    tests: {
+      description: string
+      failMsg: string
+      test: (param: TestFunctionParameters) => Promise<any>
+    }[]
+  }
+}
