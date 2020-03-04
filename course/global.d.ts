@@ -1,11 +1,13 @@
-export {}
+import * as ramda from 'ramda'
+
+export {} 
 
 declare global {
   interface TestContext {
     getFile: (path: string) => Promise<string>
     parseCss: (content: string) => object
     parseJsonc: (content: string) => object
-    ramda: object
+    ramda: typeof ramda
     [key: string]: any
   }
 

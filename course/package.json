@@ -4,9 +4,11 @@
     "test": "yarn jest"
   },
   "dependencies": {
+    "postcss": "^7.0.27",
+    "ramda": "^0.27.0",
     "typescript": "3.7.3"
   },
   "devDependencies": {
-    "@types/ramda": "^0.25.50"
+    "@types/ramda": "^0.26.43"
   }
 }
