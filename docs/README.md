@@ -1,3 +1,3 @@
-# Course Example
+# This is a sample README for a course
 
-![img](https://i.imgur.com/YvcVUx3.png)
+
