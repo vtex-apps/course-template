@@ -19,7 +19,7 @@ declare global {
     tests: {
       description: string
       failMsg: string
-      test: (param: TestFunctionParameters) => Promise<any>
+      test: (param: TestFunctionParameters) => Promise<boolean> | boolean
     }[]
   }
 }

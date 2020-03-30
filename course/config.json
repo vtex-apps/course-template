@@ -1,12 +1,12 @@
 {
-  "title": "A example course for you to learn",
-  "tagline": "Learn how to make courses on the course maker using a course. Realize that we'll use use app's name for creating the final files repo.",
-  "description": "Here you might use some MD. Probably.",
+  "title": "Template Course",
+  "tagline": "Like a subtitle for your course",
+  "description": "Description of your course",
   "languages": ["en", "pt"],
   "steps": [
     {
-      "folder": "hello-world",
-      "title": { "en": "Hello", "pt": "Olá" },
+      "folder": "01-hello-world",
+      "title": { "en": "First assignment", "pt": "Primeira tarefa" },
       "description": {
         "en": "Description for the Hello World step (used solely for Github's progress page)",
         "pt": "Descrição para o step de Hello World"
@@ -14,7 +14,7 @@
       "challenge": "none"
     },
     {
-      "folder": "writing-jsonc",
+      "folder": "02-writing-jsonc",
       "title": {
         "en": "On this step, we have tests that check if some JSONC files were correctly made",
         "pt": "Neste passo teremos testes para verificar se alguns arquivos JSONC foram corretamente criados"
@@ -23,7 +23,7 @@
       "challenge": "tests"
     },
     {
-      "folder": "writing-css",
+      "folder": "03-writing-css",
       "title": {
         "en": "Here, we will get some CSS files and parse them, checking if the correct classes were declared",
         "pt": "Aqui, iremos parsear arquivos CSS submetidos e verificar se as classes foram corretamente criadas"
@@ -32,7 +32,7 @@
       "challenge": "tests"
     },
     {
-      "folder": "wrapping-up",
+      "folder": "04-wrapping-up",
       "title": {
         "en": "Here you can set another title for this step",
         "pt": "Aqui você pode colocar outro título para seu step"
