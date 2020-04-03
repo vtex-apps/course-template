@@ -1,1 +1,12 @@
-{}
+{
+  "store.custom#tab-layout": {
+    "children": [
+      "rich-text#foo"
+    ]
+  },
+  "rich-text#foo": {
+    "props": {
+      "text": "iaew boy"
+    }
+  }
+}
