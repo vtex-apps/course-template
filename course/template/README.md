@@ -1,1 +1,1 @@
-# Sample Course Template
+# ________ Course
